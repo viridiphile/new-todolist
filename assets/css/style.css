@@ -99,6 +99,10 @@ main{
     margin-bottom: 1rem;
 }
 
+#tasks .task .content{
+    flex: 1 1 0%;
+}
+
 #tasks .task .content .text{
     color: #004b91;
     font-size: 1.125rem;
@@ -109,7 +113,7 @@ main{
 }
 
 #tasks .task .content .text:not(:read-only){
-    color:#6a1299;
+    color:#9e11eb;
 }
 
 #tasks .task .actions{
