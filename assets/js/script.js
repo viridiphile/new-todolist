@@ -22,6 +22,7 @@ window.addEventListener('load', () => {
         task_el.appendChild(task_content_el);
 
         const task_input_el = document.createElement("input");
+
         task_input_el.classList.add("text");
         task_input_el.type = "text";
         task_input_el.value = task;
@@ -58,7 +59,7 @@ window.addEventListener('load', () => {
                 task_edit_el.innerText = "Save";
             } else {
                 task_input_el.setAttribute("readonly", "readonly");
-                task_input_el.innerText = "Edit";
+                task_edit_el.innerText = "Edit";
             }
         })
 
@@ -70,6 +71,4 @@ window.addEventListener('load', () => {
             }
         })
     })
-
-
 })

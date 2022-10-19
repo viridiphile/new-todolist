@@ -25,11 +25,30 @@ header {
     margin   : 0 auto;
 }
 
-h1 {
+/* h1 {
     font-size    : 2.5rem;
     font-weight  : 600;
     color        : #2d6ed1;
     margin-bottom: 1rem;
+} */
+
+.greeting .title {
+    display: flex;
+    color: #2d6ed1;
+    margin-bottom: 2rem;
+}
+
+.greeting .title input {
+    color: #195fc7;
+    margin-left: 0.5rem;
+    flex: 1 1 0%;
+    min-width: 0;
+}
+
+.greeting .title, 
+.greeting .title input {
+    font-size: 2.5rem;
+    font-weight: 700;
 }
 
 #new-task-form {
@@ -138,13 +157,18 @@ main{
     opacity: 0.5;
 }
 
+.task .actions .delete, 
 .task .actions .edit{
+    color: rgb(197, 197, 197);
+}
+
+.task .actions .edit:hover{
     background-image       : linear-gradient(to right, #0d4880, #6a1299);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 } 
 
-.task .actions .delete{
+.task .actions .delete:hover{
     /* make this color on hover
     and witjout hover just grey */
     color: crimson;
