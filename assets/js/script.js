@@ -1,7 +1,16 @@
 window.addEventListener('load', () => {
+    const nameInput = document.querySelector('#name');
+    const username = localStorage.getItem('username') || '';
+
     const form = document.querySelector("#new-task-form");
     const input = document.querySelector("#new-task-input");
     const list_el = document.querySelector("#tasks");
+
+    nameInput.value = username;
+
+    nameInput.addEventListener('change', (e) => {
+        localStorage.setItem('username', e.target.value);
+    })
 
     form.addEventListener('submit', (e) => {
         e.preventDefault(); //prevents page from reloading/refreshing
