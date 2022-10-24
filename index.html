@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>To-Do your life</title>
 </head>
 
@@ -19,22 +19,23 @@
             </h2>
         </div>
 
-        <form action="" id="new-task-form">
+        <form id="new-todo-form">
             <input 
                 type="text" 
+                name="content"
                 id="new-task-input" 
                 placeholder="What do you have planned?" >
             <input 
                 type="submit" 
                 id="new-task-submit"
-                value="Add task" >
+                value="Add todo">
         </form>
     </header>
 
     <main>
-        <div class="task-list">
+        <div class="todo-list-wrapper">
             <h2>Tasks</h2>
-            <div id="tasks">
+            <div id="todo-list" class="list">
 <!-- 
                 <div class="task">
                     <div class="content">
@@ -54,6 +55,6 @@
             </div>
         </div>
     </main>
-    <script src="./assets/js/script.js"></script>
+    <script src="./js/script.js"></script>
 </body>
 </html>

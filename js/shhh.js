@@ -1,27 +1,41 @@
 window.addEventListener('load', () => {
+    todos = JSON.parse(localStorage.getItem('todos')) || [];
+    form = document.querySelector("#new-task-form");
+    input = document.querySelector("#new-task-input");
+
     const nameInput = document.querySelector('#name');
     const username = localStorage.getItem('username') || '';
 
-    const form = document.querySelector("#new-task-form");
-    const input = document.querySelector("#new-task-input");
-    const list_el = document.querySelector("#tasks");
-
-    nameInput.value = username;
+    nameInput.value = username;//it will output whatever is in our local storage
 
     nameInput.addEventListener('change', (e) => {
         localStorage.setItem('username', e.target.value);
     })
 
+    // IT ALL STARTS HERE
     form.addEventListener('submit', (e) => {
         e.preventDefault(); //prevents page from reloading/refreshing
 
-        const task = input.value;
-        if(!task) {
-            alert("Please fill out the task");
-            return;
+        const todo = {
+            content: e.target.elements.content.value,
+            done: false,
+            createdAt: new Date().getTime()
         }
 
-        const task_el = document.createElement("div"); 
+        todos.push(todo);
+
+        localStorage.setItem('todos', JSON.stringify(todos));
+
+        //Resetting the form
+        e.target.reset();
+
+        DisplayTodos();
+    })
+})
+
+function DisplayTodos() {
+    const list_el = document.querySelector("#tasks");
+    const task_el = document.createElement("div"); 
         //allows us to create a dom element
         task_el.classList.add("task");//adds a class
 
@@ -34,7 +48,7 @@ window.addEventListener('load', () => {
 
         task_input_el.classList.add("text");
         task_input_el.type = "text";
-        task_input_el.value = task;
+        task_input_el.value = todo;
         task_input_el.setAttribute("readonly", "readonly");
 
         task_content_el.appendChild(task_input_el);
@@ -60,6 +74,20 @@ window.addEventListener('load', () => {
 
         input.value = "";
 
+        if(todo.done) {
+            todoItem.classList.add('done');
+        }
+
+        input.addEventListener('click', (e) => {
+            todo.done = e.target.checked;
+            localStorage.setItem('todos', JSON.stringify(todos));
+
+            if (todo.done){
+                todoItem.classList.add('done');
+            } else {
+                todoItem.classList.remove('done');
+            }
+        })
         // EDIT
         task_edit_el.addEventListener('click', () => {
             if(task_edit_el.innerText.toLocaleLowerCase() == "edit"){
@@ -79,5 +107,4 @@ window.addEventListener('load', () => {
                 list_el.removeChild(task_el);
             }
         })
-    })
-})
+}

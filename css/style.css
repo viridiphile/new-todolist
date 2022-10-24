@@ -2,8 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
 /* You can introduce a second color */
-
-
 * {
     margin     : 0;
     padding    : 0;
@@ -25,13 +23,15 @@ header {
     margin   : 0 auto;
 }
 
-/* h1 {
-    font-size    : 2.5rem;
-    font-weight  : 600;
-    color        : #2d6ed1;
-    margin-bottom: 1rem;
-} */
+input,
+button {
+    appearance: none;
+    border    : none;
+    background: none;
+    outline   : none;
+}
 
+/* Greeting */
 .greeting .title {
     display: flex;
     color: #2d6ed1;
@@ -51,16 +51,9 @@ header {
     font-weight: 700;
 }
 
-#new-task-form {
+/* To-Do List Form */
+#new-todo-form {
     display: flex;
-}
-
-input,
-button {
-    appearance: none;
-    border    : none;
-    background: none;
-    outline   : none;
 }
 
 #new-task-input {
@@ -72,7 +65,7 @@ button {
     font-size       : 1.25rem;
 }
 
-#new-task-submit {
+#new-task-submit{
     color                  : #fff;
     font-size              : 1.25rem;
     font-weight            : 800;
@@ -103,26 +96,61 @@ main{
     padding: 1rem;
 }
 
-.task-list h2{
+.todo-list-wrapper h2{
     color: #2d6ed1;
     font-size: 1.5rem;
     margin-bottom: 1rem;
 }
 
-#tasks .task{
+#todo-list .todo-item{
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: #fff;
     padding: 1rem;
     border-radius: 1rem;
     margin-bottom: 1rem;
 }
 
-#tasks .task .content{
+#todo-list .todo-item .todo-content{
     flex: 1 1 0%;
 }
 
-#tasks .task .content .text{
+.todo-item label{
+    display: flex;
+    align-self: center;
+    margin-right: 10px;
+}
+
+.bubble{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    border: 2px solid #3a82ee;
+    box-shadow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+}
+
+.bubble::after {
+    content: '';
+    display: block;
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: #3a82ee;
+    box-shadow:  0px 0px 4px rgba(58, 130, 238, 0.75);
+    border-radius: 999px;
+    transition: 0.2s ease-in-out;
+}
+input:checked ~ .bubble::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+#todo-list .todo-item .todo-content input{
     color: #004b91;
     font-size: 1.125rem;
     /* 18 px - 16px font size*/
@@ -131,16 +159,16 @@ main{
     transition: 0.45s;
 }
 
-#tasks .task .content .text:not(:read-only){
+#todo-list .todo-item .todo-content input:not(:read-only){
     color:#9e11eb;
 }
 
-#tasks .task .actions{
+#todo-list .todo-item .actions{
     display: flex;
     margin: 0 -.05rem;
 }
 
-.task .actions button{
+.todo-item .actions button{
     cursor: pointer;
     margin: 0 0.5rem;
     font-size: 1rem;
@@ -149,27 +177,32 @@ main{
     transform: 0.4s;
 }
 
-.task .actions button:hover{
+.todo-item .actions button:hover{
     opacity: 0.8;
 }
 
-.task .actions button:active{
+.todo-item .actions button:active{
     opacity: 0.5;
 }
 
-.task .actions .delete, 
-.task .actions .edit{
+.todo-item .actions .delete, 
+.todo-item .actions .edit{
     color: rgb(197, 197, 197);
 }
 
-.task .actions .edit:hover{
+.todo-item .actions .edit:hover{
     background-image       : linear-gradient(to right, #0d4880, #6a1299);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 } 
 
-.task .actions .delete:hover{
+.todo-item .actions .delete:hover{
     /* make this color on hover
     and witjout hover just grey */
     color: crimson;
+}
+
+.todo-item.done .todo-content input{
+    text-decoration: line-through;
+    color: rgb(97, 97, 97);
 }
