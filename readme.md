@@ -1,0 +1,1 @@
+This is a To-Do List written on vanilla JavaSCript for a college project.
