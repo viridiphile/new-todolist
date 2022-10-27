@@ -1,5 +1,6 @@
 window.addEventListener('load', () => {
     todos = JSON.parse(localStorage.getItem('todos')) || [];
+    clearAll = document.querySelector(".clear-btn");
 
     const nameInput = document.querySelector('#name');
     const username = localStorage.getItem('username') || '';
@@ -22,7 +23,7 @@ window.addEventListener('load', () => {
             done: false,
             createdAt: new Date().getTime()
         }
-
+        
         todos.push(todo);
 
         if(!todo.content) {
@@ -115,5 +116,11 @@ function DisplayTodos() {
                 DisplayTodos()
             }
         })
+
+        clearAll.addEventListener("click", () => {
+            todos.splice(0, todos.length);
+            localStorage.setItem("todo-list", JSON.stringify(todos));
+            DisplayTodos();
+        });
     })
 }

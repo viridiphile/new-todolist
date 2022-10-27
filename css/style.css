@@ -33,21 +33,21 @@ button {
 
 /* Greeting */
 .greeting .title {
-    display: flex;
-    color: #2d6ed1;
+    display      : flex;
+    color        : #2d6ed1;
     margin-bottom: 2rem;
 }
 
 .greeting .title input {
-    color: #195fc7;
+    color      : #195fc7;
     margin-left: 0.5rem;
-    flex: 1 1 0%;
-    min-width: 0;
+    flex       : 1 1 0%;
+    min-width  : 0;
 }
 
-.greeting .title, 
+.greeting .title,
 .greeting .title input {
-    font-size: 2.5rem;
+    font-size  : 2.5rem;
     font-weight: 700;
 }
 
@@ -65,144 +65,180 @@ button {
     font-size       : 1.25rem;
 }
 
-#new-task-submit{
+#new-task-submit {
     color                  : #fff;
     font-size              : 1.25rem;
     font-weight            : 800;
-    background-image       : linear-gradient(to right, #0d4880, #6a1299);
+    background-image       : linear-gradient(165deg, #0d4880, #2D5CFE);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     cursor                 : pointer;
-    transition: 0.4s;
+    transition             : 0.4s;
 }
 
-#new-task-submit:hover{
+#new-task-submit:hover {
     opacity: 0.8;
 }
 
-#new-task-submit:active{
+#new-task-submit:active {
     opacity: 0.5;
 }
 
-main{
-    flex: 1 1 0%;
-    padding: 2rem 1rem;
+main {
+    flex     : 1 1 0%;
+    padding  : 0 1rem;
     max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
+    width    : 100%;
+    margin   : 0 auto;
 }
 
-.task-list{
+.task-list {
     padding: 1rem;
 }
 
-.todo-list-wrapper h2{
-    color: #2d6ed1;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-}
-
-#todo-list .todo-item{
-    display: flex;
+/* Controls */
+.controls,
+li {
+    display        : flex;
+    align-items    : center;
     justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    padding: 1rem;
-    border-radius: 1rem;
-    margin-bottom: 1rem;
 }
 
-#todo-list .todo-item .todo-content{
+.controls {
+    padding: 18px 25px;
+}
+
+.controls h2{
+    color: #2d6ed1;
+}
+
+.controls .clear-btn {
+    border        : none;
+    opacity       : 0.6;
+    outline       : none;
+    color         : #fff;
+    cursor        : pointer;
+    font-size     : 15px;
+    padding       : 7px 13px;
+    border-radius : 4px;
+    letter-spacing: 0.3px;
+    transition    : transform 0.25s ease;
+    background    : linear-gradient(135deg, #2D5CFE, #0d4880);
+}
+
+.clear-btn.active {
+    opacity: 0.9;
+}
+
+/* Animation on button click */
+.clear-btn:active {
+    transform: scale(0.93);
+}
+
+#todo-list .todo-item {
+    display         : flex;
+    justify-content : space-between;
+    align-items     : center;
+    background-color: #fff;
+    padding         : 1rem;
+    border-radius   : 1rem;
+    margin-bottom   : 1rem;
+}
+
+#todo-list .todo-item .todo-content {
     flex: 1 1 0%;
 }
 
-.todo-item label{
-    display: flex;
-    align-self: center;
+.todo-item label {
+    display     : flex;
+    align-self  : center;
     margin-right: 10px;
 }
 
-.bubble{
-    display: flex;
-    align-items: center;
+.bubble {
+    display        : flex;
+    align-items    : center;
     justify-content: center;
-    width: 20px;
-    height: 20px;
-    border-radius: 999px;
-    border: 2px solid #3a82ee;
-    box-shadow: 0px 0px 4px rgba(58, 130, 238, 0.75);
+    width          : 20px;
+    height         : 20px;
+    border-radius  : 999px;
+    border         : 2px solid #3a82ee;
+    box-shadow     : 0px 0px 4px rgba(58, 130, 238, 0.75);
 }
 
 .bubble::after {
-    content: '';
-    display: block;
-    opacity: 0;
-    width: 0px;
-    height: 0px;
+    content         : '';
+    display         : block;
+    opacity         : 0;
+    width           : 0px;
+    height          : 0px;
     background-color: #3a82ee;
-    box-shadow:  0px 0px 4px rgba(58, 130, 238, 0.75);
-    border-radius: 999px;
-    transition: 0.2s ease-in-out;
+    box-shadow      : 0px 0px 4px rgba(58, 130, 238, 0.75);
+    border-radius   : 999px;
+    transition      : 0.2s ease-in-out;
 }
-input:checked ~ .bubble::after {
-    width: 10px;
-    height: 10px;
+
+input:checked~.bubble::after {
+    width  : 10px;
+    height : 10px;
     opacity: 1;
 }
 
-#todo-list .todo-item .todo-content input{
-    color: #004b91;
-    font-size: 1.125rem;
+#todo-list .todo-item .todo-content input {
+    color     : #004b91;
+    font-size : 1.125rem;
     /* 18 px - 16px font size*/
-    width: 100%;
-    display: block;
+    width     : 100%;
+    display   : block;
     transition: 0.45s;
 }
 
-#todo-list .todo-item .todo-content input:not(:read-only){
-    color:#9e11eb;
+#todo-list .todo-item .todo-content input:not(:read-only) {
+    color: #9e11eb;
 }
 
-#todo-list .todo-item .actions{
+#todo-list .todo-item .actions {
     display: flex;
-    margin: 0 -.05rem;
+    margin : 0 -.05rem;
 }
 
-.todo-item .actions button{
-    cursor: pointer;
-    margin: 0 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
+.todo-item .actions button {
+    cursor        : pointer;
+    margin        : 0 0.5rem;
+    font-size     : 1rem;
+    font-weight   : 600;
     text-transform: uppercase;
-    transform: 0.4s;
+    transform     : 0.4s;
 }
 
-.todo-item .actions button:hover{
+.todo-item .actions button:hover {
     opacity: 0.8;
 }
 
-.todo-item .actions button:active{
+.todo-item .actions button:active {
     opacity: 0.5;
 }
 
-.todo-item .actions .delete, 
-.todo-item .actions .edit{
+.todo-item .actions .delete,
+.todo-item .actions .edit {
     color: rgb(197, 197, 197);
 }
 
-.todo-item .actions .edit:hover{
+.todo-item .actions .edit:hover {
     background-image       : linear-gradient(to right, #0d4880, #6a1299);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-} 
+}
 
-.todo-item .actions .delete:hover{
+.todo-item .actions .delete:hover {
     /* make this color on hover
     and witjout hover just grey */
     color: crimson;
 }
 
-.todo-item.done .todo-content input{
+.todo-item.done .todo-content input {
     text-decoration: line-through;
-    color: rgb(97, 97, 97);
+    color          : rgb(97, 97, 97);
 }
+
+
